@@ -1,0 +1,115 @@
+# depslib dependency file v1.0
+1524505938 source:d:\c++\spaceshooter\main.cpp
+	<ctime>
+	<math.h>
+	<sstream>
+	<SFML/Graphics.hpp>
+	"Player.h"
+	"Bullet.h"
+	"Enemy.h"
+	"Speedup.h"
+
+1524505608 "
+
+1524506245 d:\c++\spaceshooter\include\player.h
+	<SFML/Graphics.hpp>
+	<SFML/Window.hpp>
+	<math.h>
+	<iostream>
+	"Angles.h"
+
+1524506245 
+
+1524506245 d:\c++\spaceshooter\include\bullet.h
+	<SFML/Graphics.hpp>
+	<SFML/Window.hpp>
+	<math.h>
+	<iostream>
+	"Angles.h"
+
+1524505539 d:\c++\spaceshooter\include\enemy.h
+	<Player.h>
+
+1524505749 d:\c++\spaceshooter\include\speedup.h
+	<SFML/Graphics.hpp>
+	<SFML/Window.hpp>
+	<math.h>
+	<iostream>
+
+1524506245 source:d:\c++\spaceshooter\src\bullet.cpp
+	"Bullet.h"
+
+1524505538 source:d:\c++\spaceshooter\src\enemy.cpp
+	"Enemy.h"
+
+1524505538 
+
+1524505608 source:d:\c++\spaceshooter\src\speedup.cpp
+	"Speedup.h"
+
+1524506257 d:\c++\spaceshooter\include\angles.h
+	<math.h>
+	<SFML/Graphics.hpp>
+	<SFML/Window.hpp>
+
+1524506257 ow.hpp>
+
+1524506233 source:d:\c++\spaceshooter\src\angles.cpp
+	"Angles.h"
+
+1524506245 source:d:\c++\spaceshooter\src\player.cpp
+	"Player.h"
+
+1524506494 source:/home/airflame/cpp/spaceshooter/main.cpp
+	<ctime>
+	<math.h>
+	<sstream>
+	<SFML/Graphics.hpp>
+	"Player.h"
+	"Bullet.h"
+	"Enemy.h"
+	"Speedup.h"
+
+1524506245 /home/airflame/cpp/spaceshooter/include/Player.h
+	<SFML/Graphics.hpp>
+	<SFML/Window.hpp>
+	<math.h>
+	<iostream>
+	"Angles.h"
+
+1524506257 /home/airflame/cpp/spaceshooter/include/Angles.h
+	<math.h>
+	<SFML/Graphics.hpp>
+	<SFML/Window.hpp>
+
+1524506245 /home/airflame/cpp/spaceshooter/include/Bullet.h
+	<SFML/Graphics.hpp>
+	<SFML/Window.hpp>
+	<math.h>
+	<iostream>
+	"Angles.h"
+
+1524505539 /home/airflame/cpp/spaceshooter/include/Enemy.h
+	<Player.h>
+
+1524505749 /home/airflame/cpp/spaceshooter/include/Speedup.h
+	<SFML/Graphics.hpp>
+	<SFML/Window.hpp>
+	<math.h>
+	<iostream>
+
+1524506233 source:/home/airflame/cpp/spaceshooter/src/Angles.cpp
+	"Angles.h"
+
+1524506245 source:/home/airflame/cpp/spaceshooter/src/Bullet.cpp
+	"Bullet.h"
+
+1524505538 source:/home/airflame/cpp/spaceshooter/src/Enemy.cpp
+	"Enemy.h"
+
+1524506245 source:/home/airflame/cpp/spaceshooter/src/Player.cpp
+	"Player.h"
+
+1524505608 source:/home/airflame/cpp/spaceshooter/src/Speedup.cpp
+	"Speedup.h"
+
