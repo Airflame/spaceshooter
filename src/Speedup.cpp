@@ -1,4 +1,4 @@
-#include "Speedup.h"
+#include "../include/Speedup.h"
 
 Speedup::Speedup( int posx, int posy )
 {

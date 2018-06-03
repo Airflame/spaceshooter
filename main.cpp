@@ -2,10 +2,10 @@
 #include <math.h>
 #include <sstream>
 #include <SFML/Graphics.hpp>
-#include "Player.h"
-#include "Bullet.h"
-#include "Enemy.h"
-#include "Speedup.h"
+#include "include/Player.h"
+#include "include/Bullet.h"
+#include "include/Enemy.h"
+#include "include/Speedup.h"
 using namespace std;
 
 
@@ -40,11 +40,9 @@ int main()
     r.y = (int)(rand() % 3000);
     Speedup s( r.x, r.y );
 
-
-    //////TEKSTURA//TLA///////////////////////
     sf::Texture bgtexture;
     int bgx, bgy;
-    if (!bgtexture.loadFromFile("bg.png"))
+    if (!bgtexture.loadFromFile("res/bg.png"))
     {
         cout << "TEXTURE LOADING ERROR" << endl;
     }
@@ -58,12 +56,11 @@ int main()
         bgy = floor( i / 6 ) * 500;
         bg[ i ].setPosition( sf::Vector2f( bgx, bgy ) );
     }
-    //////////////////////////////////////////
 
     int points = 0;
     string spoints;
     sf::Font font;
-    font.loadFromFile("arial.ttf");
+    font.loadFromFile("res/arial.ttf");
     sf::Text text;
     text.setFont(font);
     text.setCharacterSize(40);
@@ -76,20 +73,19 @@ int main()
     gameover.setColor(sf::Color::White);
     gameover.setString(sgameover);
 
-    sf::RenderWindow window( sf::VideoMode( 600, 600 ), "rotate" );
+    sf::ContextSettings settings;
+    settings.antialiasingLevel = 4;
+    sf::RenderWindow window( sf::VideoMode( 600, 600 ), "rotate", sf::Style::Default, settings );
+    window.setFramerateLimit(60);
     sf::View pview(sf::Vector2f(300, 300), sf::Vector2f(600, 600));
 
     while( window.isOpen() )
     {
-        //////////PUNKTY//////////////////////////
         ostringstream ss;
         ss << points;
         spoints = ss.str();
         text.setString(spoints);
-        //////////////////////////////////////////
 
-
-        //////RYSOWANIE///////////////////////////
         window.clear( sf::Color::Black );
         for( int i = 0; i < 36; i++ )
         {
@@ -111,10 +107,7 @@ int main()
         window.draw( text );
         if( !p.exist )
             window.draw( gameover );
-        //////////////////////////////////////////
 
-
-        ///////GRACZ//////////////////////////////
         mpos = sf::Mouse::getPosition( window );
         ampos = window.mapPixelToCoords( mpos );
         if( p.exist )
@@ -122,7 +115,6 @@ int main()
             p.update( ampos );
             p.movement( dt );
         }
-        ////////WIDOK/////////////////////////////
         vcenter = p.cpos;
         if( vcenter.x < 300 )
             vcenter.x = 300;
@@ -136,10 +128,7 @@ int main()
         window.setView( pview );
         text.setPosition( vcenter.x - 300, vcenter.y - 300 );
         gameover.setPosition( vcenter.x - 250, vcenter.y - 100 );
-        //////////////////////////////////////////
 
-
-        //////////////POCISKI/////////////////////
         if ( sf::Mouse::isButtonPressed(sf::Mouse::Right) and btimer >= 1 and p.exist  )
         {
             btimer = 0;
@@ -158,10 +147,7 @@ int main()
             b[ i ].lifealt( dt );
         if( bindex >= bulletmx )
             bindex = 0;
-        //////////////////////////////////////////
 
-
-        /////////PRZECIWNICY//////////////////////
         for( int i = 0; i < enemymx; i++ )
         {
             if( e[ i ]->exist and p.exist )
@@ -198,10 +184,7 @@ int main()
                 }
             }
         }
-        //////////////////////////////////////////
 
-
-        /////////BONUSY///////////////////////////
         if( p.collision( s.cpos, s.radius ) and p.b_stimer < 3 )
         {
             r = p.cpos;
@@ -210,14 +193,10 @@ int main()
                 r.x = (int)(rand() % 3000);
                 r.y = (int)(rand() % 3000);
             }
-            cout << r.x << ", " << r.y << endl;
             s.respawn( r );
             p.b_stimer = 5;
         }
-        //////////////////////////////////////////
 
-
-        /////RESZTA///////////////////////////////
         sf::Event event;
         while( window.pollEvent( event ) )
         {
@@ -226,7 +205,6 @@ int main()
         }
         window.display();
         dt = cl.restart().asSeconds();
-        //////////////////////////////////////////
     }
     return 0;
 }
